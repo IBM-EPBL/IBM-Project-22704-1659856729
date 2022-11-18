@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+   margin: 0;
+   padding: 0;
+   
+   font-family: 'Poppins', sans-serif;
+}
+body{
+   min-height: 100%;
+   background-image: url("{{ url_for('static', filename='dash.jpg') }}");
+   background-attachment: fixed;
+   background-size: cover;
+   
+}
+        table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 5%;
+}
+
+tr:nth-child(odd){
+background-color: black;
+color: white;
+}
+tr:nth-child(even){
+background-color: black;
+color: white;
+}
+.navbar {
+ overflow: hidden;
+ background: yellow;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ font-size: 3vh;
+}
+
+.navbar a {
+ float: right;
+ display: block;
+ color: #f2f2f2;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-size: 17px;
+}
+
+.navbar a:hover {
+ background: #ddd;
+ color: black;
+}
+.title{
+   padding: 12px 12px;
+   color: black;
+}
+button {
+    background-color: yellow;
+    margin-left: 81rem;
+    height: 50px;
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+    border-width: 3px;
+    
+
+}
+button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+
+    </style>
+</head>
+<body >
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "f0e07c06-a702-4440-83a9-4ebebcc0e76f", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "1a401eda-4d05-453b-9315-00404cfa22a8", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+    <div class="navbar">
+        
+        <div class="title">
+            <h3  style="font-family: Segoe;">Inventory Management system - Dash Board</h3>
+          </div>
+      </div>
+    <table style="width:90%">
+        <tr>
+          <th>PRODUCTNAME</th>
+          <!-- <th>IMAGE</th>  -->
+          <th>CATEGORY</th>
+          <th>AVAILABLE QUANTITY
+          </th>
+          
+        </tr>
+       
+        {% for item in electronics %}
+        <tr>
+            <td>{{item.NAME}}</td>
+            <!-- <td><img src="./3125991_xcv20a.jpg" width="5%" height="5%"></td> -->
+            <td>ELECTRONICS</td>
+            <td>{{item.QUANTITY}}</td>
+          </tr>
+          {% endfor %}
+
+          {% for item in mobiles %}
+        <tr>
+            <td>{{item.NAME}}</td>
+            <!-- <td><img src="./png-clipart-apple-watch-series-2-apple-watch-series-3-smartwatch-black-smart-watch-black-hair-digital.png" width="5%" height="5%"></td> -->
+            <td>MOBILES</td>
+            <td>{{item.QUANTITY}}</td>
+          </tr>
+          {% endfor %}
+          {% for item in accessories %}
+        <tr>
+            <td>{{item.NAME}}</td>
+            <!-- <td><img src="./images.png" width="5%" height="5%"></td> -->
+            <td>ACCESSORIES</td>
+            <td>{{item.QUANTITY}}</td>
+          </tr>
+          {% endfor %}
+          {% for item in appliances %}
+        <tr>
+            <td>{{item.NAME}}</td>
+            <!-- <td><img src="./png-transparent-laptop-netbook-ultra-thin-laptops-electronics-3d-computer-graphics-computer.png" width="5%" height="5%"></td> -->
+            <td>APPLIANCES</td>
+            <td>{{item.QUANTITY}}</td>
+          </tr>
+          {% endfor %}
+          
+      </table>
+      <a target="_blank" href="{{url_for('addproduct')}}"><button>ADD PRODUCTS</button></a>
+      <a target="_blank" href="{{url_for('update')}}"><button>UPDATE PRODUCTS</button></a>
+    
+</body>
+</html>

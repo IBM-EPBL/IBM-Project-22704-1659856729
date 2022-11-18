@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(./warehouse-goods-stock-background-3d-rendering_110893-61.webp);
+}
+.box{
+    position: relative;
+    width: 380px;
+    height: 500px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(350deg);
+    }
+}
+
+/* Form */
+.form{
+    position: absolute;
+    inset: 2px;
+    border-radius: 8px;
+    background: black;
+    z-index: 10;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+}
+.form h2{
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.2rem;
+}
+.inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 33px;
+}
+
+.inputBox input{
+    position: relative;
+    width: 100%;
+    padding: 10px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    z-index: 10;
+}
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    font-size: 1em;
+    color: white;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.6s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: green;
+    transform: translateX(0px) translateY(-34px);
+    font-size: 0.75em;
+}
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: yellow;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 0;
+}
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i{
+     height: 44px;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.links a {
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+.links a:hover {
+    color: red;
+}
+
+input[type="submit"]{
+    border: none;
+    outline: none;
+    background: #45ff55;
+    padding: 11px 25px;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+} 
+input[type="submit"]:active{
+    opacity: 0.8;
+}
+
+
+  .font{
+    font-family: 'Poppins', sans-serif;
+    top: 0;
+    margin-left: 120%;
+    text-align: left;
+  }
+  .fa{
+    color:  aliceblue;
+  
+    
+  }
+  
+  .navbar {
+  overflow: hidden;
+  background:linear-gradient(-13deg, transparent,#2c3539,#151b54);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 3vh;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+.title{
+    padding: 12px 12px;
+    color: #f2f2f2;
+}
+.title h3 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+    </style>
+</head>
+<body>
+    <script>
+        function success(){
+            alert("Updated successfully")
+        }
+    </script>
+    <div class="navbar">
+        <!-- <a target="_blank" href="/Sign In.html">SIGN IN </a> -->
+        
+        
+        <div class="title">
+            <h3>INVENTORY</h3>
+          </div>
+      </div>
+     
+      
+    <form method="post">
+        <div class="box">
+            <div class="form">
+                <h2>UPDATE THE STOCK</h2>
+                
+                <div class="inputBox"  >
+                      
+                    <input type="text" name="name"   required>
+                    <span  class="fa"> <span class="font">Name</span></span>
+                    <i></i>
+                </div>
+
+                
+                <div class="inputBox"  >
+                      
+                    <input type="number" name="quantity"   required>
+                    <span  class="fa"> <span class="font">Quantity</span></span>
+                    <i></i>
+                </div>
+                <div class="inputBox"  >
+                      
+                    <select name="types" id="cars">
+                        <option value="select a category" disabled>Select a category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="mobiles">Mobiles</option>
+                        <option value="appliances">appliances</option>
+                        <option value="Accessories">Accessories</option>
+                      </select>
+                    <i></i>
+                </div>
+               
+                
+                <input type="submit" onclick="success()" value="UPDATE">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
