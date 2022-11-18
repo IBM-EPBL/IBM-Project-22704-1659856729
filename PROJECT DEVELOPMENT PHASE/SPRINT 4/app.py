@@ -26,7 +26,7 @@ config.read("config.ini")
 app = Flask(__name__,template_folder='templates')
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-# SENDGRID_API_KEY='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'
+
 
 
 try:
